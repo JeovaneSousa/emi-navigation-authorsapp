@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DsB-Jq-NhY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DsB-Jq-NhY">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -14,7 +15,7 @@
             <objects>
                 <navigationController id="DsB-Jq-NhY" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="34d-Ms-SKo">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="Texas Rose"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -39,12 +40,12 @@
             <objects>
                 <tableViewController id="NTq-1v-L09" customClass="AutoresListViewController" customModule="LearningTask_8_2" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="F2Y-S6-z2i">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="804"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AutorTableViewCell" id="4KN-Wu-aGv" customClass="AutorTableViewCell" customModule="LearningTask_8_2" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="97.5"/>
+                                <rect key="frame" x="0.0" y="50" width="414" height="97.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4KN-Wu-aGv" id="WpA-bF-46e">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="97.5"/>
@@ -92,6 +93,7 @@
                                 <connections>
                                     <outlet property="nomeLabel" destination="FrW-Gu-s7B" id="Wvg-Kk-gir"/>
                                     <outlet property="tecnologiasLabel" destination="Lk8-TL-bfj" id="Ng7-cV-Xra"/>
+                                    <segue destination="w5t-aB-bPC" kind="show" identifier="DetalheAutorSegue" id="xEF-Av-nSn"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -100,22 +102,104 @@
                             <outlet property="delegate" destination="NTq-1v-L09" id="D7w-RW-QBn"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Lse-fj-j6S"/>
+                    <navigationItem key="navigationItem" id="Lse-fj-j6S">
+                        <barButtonItem key="backBarButtonItem" title="Voltar" id="XGz-tf-zjc">
+                            <color key="tintColor" name="Pampas"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="3iB-gA-eWL">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="X58-U0-3mE" kind="showDetail" id="DWL-WJ-vpi"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xkW-zc-7lI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-29" y="110"/>
+        </scene>
+        <!--Casa do Código-->
+        <scene sceneID="HWY-F6-LDE">
+            <objects>
+                <viewController id="w5t-aB-bPC" customClass="DetalhesAutorViewController" customModule="LearningTask_8_2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rfp-Bv-vEg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="804"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="LhG-gB-OLX" userLabel="Detalhes Autor Table View">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="770"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LivroDoAutorViewCell" id="oha-jl-5EC" customClass="LivrosTableViewCell" customModule="LearningTask_8_2" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="414" height="102.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oha-jl-5EC" id="pR0-Kh-dSy">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="102.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Z6t-QK-TqA" userLabel="Container Stack View">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="102.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" text="&lt;Definido-pelo-titulo-do-livro&gt;" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfm-TW-S3H" userLabel="Titulo Livro Label">
+                                                            <rect key="frame" x="20" y="16" width="211.5" height="38.5"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                                            <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wTt-dp-6D0" userLabel="Livro Image View">
+                                                            <rect key="frame" x="243.5" y="16" width="150.5" height="86"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="wTt-dp-6D0" secondAttribute="height" multiplier="1.75:1" id="F94-un-Mo4"/>
+                                                                <constraint firstAttribute="height" constant="86" id="P7Y-fC-2su"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <directionalEdgeInsets key="directionalLayoutMargins" top="16" leading="20" bottom="0.0" trailing="20"/>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Z6t-QK-TqA" firstAttribute="leading" secondItem="pR0-Kh-dSy" secondAttribute="leading" id="ET6-Ka-YRY"/>
+                                                <constraint firstAttribute="bottom" secondItem="Z6t-QK-TqA" secondAttribute="bottom" id="PCC-GH-9cl"/>
+                                                <constraint firstAttribute="trailing" secondItem="Z6t-QK-TqA" secondAttribute="trailing" id="Rvi-B9-9wC"/>
+                                                <constraint firstItem="Z6t-QK-TqA" firstAttribute="top" secondItem="pR0-Kh-dSy" secondAttribute="top" id="mJm-jg-qBn"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="capaLivroImageView" destination="wTt-dp-6D0" id="KTX-Pw-uCd"/>
+                                            <outlet property="tituloLivroLabel" destination="sfm-TW-S3H" id="nzJ-BH-hb4"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vy4-Il-fDL"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vy4-Il-fDL" firstAttribute="bottom" secondItem="LhG-gB-OLX" secondAttribute="bottom" id="Woi-c8-d3a"/>
+                            <constraint firstItem="LhG-gB-OLX" firstAttribute="leading" secondItem="vy4-Il-fDL" secondAttribute="leading" id="dHw-Ms-SEC"/>
+                            <constraint firstItem="LhG-gB-OLX" firstAttribute="top" secondItem="vy4-Il-fDL" secondAttribute="top" id="oyE-LH-bKR"/>
+                            <constraint firstItem="vy4-Il-fDL" firstAttribute="trailing" secondItem="LhG-gB-OLX" secondAttribute="trailing" id="z2c-gT-rcl"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Casa do Código" id="6qN-Sk-Gf4"/>
+                    <connections>
+                        <outlet property="tableView" destination="LhG-gB-OLX" id="9Dd-mW-MqX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bAc-N7-fpz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="848" y="134"/>
         </scene>
         <!--Novo Autor View Controller-->
         <scene sceneID="yUV-NL-r3a">
             <objects>
                 <viewController id="X58-U0-3mE" customClass="NovoAutorViewController" customModule="LearningTask_8_2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Atg-wB-b6r">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="LFC-DJ-pXQ" userLabel="Container Stack View">
-                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <rect key="frame" x="0.0" y="48" width="414" height="790"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="raA-mi-qWw" userLabel="Logo Wrapper Stack View">
                                         <rect key="frame" x="0.0" y="16" width="414" height="44"/>
@@ -130,7 +214,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="ZHJ-Hb-fKp" userLabel="Content Container Stack View">
-                                        <rect key="frame" x="0.0" y="76" width="414" height="742"/>
+                                        <rect key="frame" x="0.0" y="76" width="414" height="714"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Avatar" translatesAutoresizingMaskIntoConstraints="NO" id="ms1-fB-Ury" userLabel="Avatar Image View">
                                                 <rect key="frame" x="20" y="0.0" width="374" height="140"/>
@@ -140,7 +224,7 @@
                                                 </constraints>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="lAF-Ak-UBl" userLabel="Form Stack View">
-                                                <rect key="frame" x="20" y="164" width="374" height="486"/>
+                                                <rect key="frame" x="20" y="164" width="374" height="458"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Hv3-Ah-hYi" userLabel="Foto Stack View">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="62.5"/>
@@ -211,12 +295,12 @@
                                                         </subviews>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="EKX-KP-xqi" userLabel="Padding View">
-                                                        <rect key="frame" x="0.0" y="314" width="374" height="172"/>
+                                                        <rect key="frame" x="0.0" y="314" width="374" height="144"/>
                                                     </view>
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ee-Rl-rsw">
-                                                <rect key="frame" x="20" y="674" width="374" height="48"/>
+                                                <rect key="frame" x="20" y="646" width="374" height="48"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="jTE-G3-YNb"/>
                                                 </constraints>
@@ -259,12 +343,16 @@
     <resources>
         <image name="Avatar" width="128" height="128"/>
         <image name="LogoTypo" width="513.35601806640625" height="108"/>
-        <image name="arrow.forward" catalog="system" width="128" height="98"/>
+        <image name="arrow.forward" catalog="system" width="128" height="95"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
+        <namedColor name="Pampas">
+            <color red="0.98400002717971802" green="0.98000001907348633" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Sawtooth Aak">
             <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Texas Rose">
-            <color red="1" green="0.66666666666666663" blue="0.37647058823529411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.66699999570846558" blue="0.37599998712539673" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>

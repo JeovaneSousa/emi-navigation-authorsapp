@@ -36,6 +36,18 @@ class AutoresListViewController: UITableViewController {
         guard let autorAPI = autoresAPI else { return }
         self.autores = autorAPI.listaTodos()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "DetalheAutorSegue" else {return}
+        
+        guard let cell = sender as? AutorTableViewCell,
+              let destination = segue.destination as? DetalhesAutorViewController else {
+            fatalError("Unable to acquire necessary data to complete segue")
+        }
+        
+        destination.autor = cell.autor
+        destination.livrosApi = LivrosAPI()
+    }
 
 }
 
